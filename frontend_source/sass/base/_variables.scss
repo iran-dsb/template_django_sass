@@ -1,0 +1,38 @@
+// COLORS
+$dark: #333;
+$dark-02: #383737;
+$pastel-01: #c9b2a4;
+$pastel-02: #e0d6cc;
+$golden: #ffc700;
+$green-01: #79C844;
+$green-02: #9cb72c;
+$blue-01: #25acca;
+$blue-02: #3c8b9c;
+$blue-03: #118ba3;
+$grey-01: #e6e6e6;
+$grey-02: #c3c3c3;
+$grey-03: #5d5d5d;
+$grey-04: #9A9A9A;
+$red-01: #ED1B24;
+$red-02: #CF000F;
+$google-plus: #db4437;
+$facebook: #3b5998;
+$twitter: #1da1f2;
+$grena: #BA2D0B;
+
+// FONTS
+$fonts-base-path: '/static/fonts';
+
+
+// SCREEN SIZES
+$mobile-width: 739px;
+$tablet-width: $mobile-width + 1px;
+$desktop-width: 1280px;
+$large-desktop-width: 1440px;
+
+$mobile: "(max-width: #{$mobile-width})";
+$tablet: "(min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px})";
+$desktop: "(min-width: #{$desktop-width}) and (max-width: #{$large-desktop-width - 1px})";
+
+// SPACINGS
+$default-spacing: 5px;

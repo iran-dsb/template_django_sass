@@ -1,0 +1,17 @@
+@import 'variables';
+
+%block{
+    display: block;
+    position: relative;
+    margin: auto;
+}
+%flat{
+    border: 0;
+}
+%clearfix{
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

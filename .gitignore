@@ -1,0 +1,45 @@
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+
+# OS or Editor folders
+.DS_Store
+.cache
+.project
+.settings
+.tmproj
+nbproject
+Thumbs.db
+
+# NPM packages folder.
+node_modules/
+
+# Brunch output folder.
+frontend_build/static/
+
+
+_Store
+media/
+bin
+build
+include
+local
+man
+share
+*.pyc
+*.db
+*.sqlite3
+**/*.js.map
+**/*.css.map
+id_rsa
+id_rsa.pub
+.idea/
+settings_local.py

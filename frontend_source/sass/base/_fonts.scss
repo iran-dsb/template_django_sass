@@ -1,0 +1,76 @@
+@import 'variables';
+
+@font-face{
+    font-family: 'OpenSans';
+    src: url('../fonts/opensans/OpenSans-Regular.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'OpenSans';
+    font-weight: 200;
+    src: url('../fonts/opensans/OpenSans-Light.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'OpenSans';
+    font-weight: 600;
+    src: url('../fonts/opensans/OpenSans-Semibold.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'OpenSans';
+    font-weight: 700;
+    src: url('../fonts/opensans/OpenSans-Bold.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'OpenSans';
+    font-weight: bold;
+    src: url('../fonts/opensans/OpenSans-ExtraBold.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'OpenSans';
+    font-style: italic;
+    src: url('../fonts/opensans/OpenSans-Italic.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'OpenSans';
+    font-weight: 200;
+    font-style: italic;
+    src: url('../fonts/opensans/OpenSans-LightItalic.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'OpenSans';
+    font-weight: 600;
+    font-style: italic;
+    src: url('../fonts/opensans/OpenSans-SemiboldItalic.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'OpenSans';
+    font-weight: 700;
+    font-style: italic;
+    src: url('../fonts/opensans/OpenSans-BoldItalic.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'OpenSans';
+    font-weight: bold;
+    font-style: italic;
+    src: url('../fonts/opensans/OpenSans-ExtraBoldItalic.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Bitter';
+    src: url('../fonts/bitter/Bitter-Regular.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Bitter';
+    font-style: italic;
+    src: url('../fonts/bitter/Bitter-Italic.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Bitter';
+    font-weight: 700;
+    src: url('../fonts/bitter/Bitter-Bold.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Bitter';
+    font-weight: bold;
+    src: url('../fonts/bitter/Bitter-Bold.ttf') format('truetype');
+}

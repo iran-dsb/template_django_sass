@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+    <script src="{% static 'js/vendor.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+</head>
+<body class="teste">
+    <div>Olá mundo</div>
+    <i class="fa fa-camera-retro fa-5x"></i>
+    <a data-lightbox="fotos" data-title="teste" class="gallery-image" href="{% static 'images/boneco.jpg'%}">
+        <img class="image" src="{% static 'images/boneco.jpg'%}" alt="Teste"/>
+    </a>
+</body>
+</html>
