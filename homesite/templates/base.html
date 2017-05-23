@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale = 1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="theme-color" content="#0D8DAA" />
+        {% block extra_meta %}
+        {% endblock %}
+        {% block title %}
+            <title></title>
+        {% endblock %}
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="#" type="image/x-icon">
+        <link rel="icon" href="#" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+        {% block extra_css %}{% endblock %}
+    </head>
+
+    <body style="width: 100%; overflow-x: hidden">
+        {% block topo %}
+            {% include 'includes/topo.html' %}
+        {% endblock %}
+        {% block menu %}
+            {% include 'includes/menu.html' %}
+        {% endblock %}
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        {% block rodape %}
+            {% include 'includes/rodape.html' %}
+        {% endblock %}
+        <script src="{% static 'js/vendor.js' %}"></script>
+        <script src="{% static 'js/app.js' %}"></script> 
+        
+        {% block extra_js %} {% endblock %}
+    </body>
+</html>

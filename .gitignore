@@ -23,7 +23,7 @@ Thumbs.db
 node_modules/
 
 # Brunch output folder.
-frontend_build/static/
+#frontend_build/static/
 
 
 _Store

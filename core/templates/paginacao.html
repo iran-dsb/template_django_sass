@@ -1,0 +1,33 @@
+<div class="clear"></div>
+<div class="pagination">
+    <div class="col-12">
+        <div class="info">Exibindo de {{ objects_list.start_index }} ao {{ objects_list.end_index }} de {{objects_list.paginator.count}} entradas</div>
+    </div>
+    <div class="col-12">
+        <center>
+            <div class="paging_numbers">
+                <ul class="pagination-list">
+                    <li><a href="?{{query_string}}{{page_str}}=1" data-toggle="tooltip" data-placement="top" title="Ir para Primeira Página"><i class="fa fa-angle-double-left icon-on-left"></i></a></li>
+                    {% if objects_list.has_previous %}
+                        <li><a href="?{{query_string}}{{page_str}}={{ objects_list.previous_page_number }}"><i class="fa fa-chevron-left icon-on-left"></i></a></li>
+                    {%else%}
+                        <li class="disabled"><a href="#"><i class="fa fa-chevron-left  icon-on-left"></i></a></li>
+                    {%endif%}
+                    {% for p in page_range_obj %}
+                        {% if p == objects_list.number %}
+                            <li><a class="active" href="?{{query_string}}{{page_str}}={{ p }}">{{ p }}</a></li>
+                        {%else%}
+                            <li><a href="?{{query_string}}{{page_str}}={{ p }}">{{ p }}</a></li>
+                        {%endif%}
+                    {%endfor%}
+                    {% if objects_list.has_next %}
+                        <li><a href="?{{query_string}}{{page_str}}={{ objects_list.next_page_number }}"><i class="fa fa-chevron-right icon-on-right"></i></a></li>
+                    {%else%}
+                        <li class="disabled"><a href="#"><i class="fa fa-chevron-right  icon-on-right"></i></a></li>
+                    {%endif%}
+                    <li><a href="?{{query_string}}{{page_str}}={{ objects_list.paginator.num_pages }}" data-toggle="tooltip" data-placement="top" title="Ir para Última Página"><i class="fa fa-angle-double-right icon-on-right"></i></a></li>
+                </ul>
+            </div>
+        </center>
+    </div>
+</div>
