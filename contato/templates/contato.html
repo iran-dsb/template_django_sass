@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    <title>Fale Conosco - Portifólio</title>
+{% endblock %}
+{% block content %}
+<section class="container content">
+    <div class="titulo-pagina">
+        <h2>Fale Conosco</h2>
+    </div>
+    <div class="contato-esq">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d650.0153201137329!2d-42.101640321081995!3d-22.83793831792554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x970fbf68645aad%3A0xef548a960d4c694b!2sPousada+Aldeia+dos+Ventos!5e0!3m2!1spt-BR!2sbr!4v1525129974554" height="370" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <address>
+            <span class="n-pousada">Portifólio</span>
+            <span>{{sobre.logradouro}}, {{sobre.numero}} - {{sobre.bairro}}</span>
+            <span>{{sobre.cidade}} / {{sobre.uf}} - Brasil</span>
+            <span>+55 (22) {{sobre.telefone}} / +55 (22) {{sobre.telefone_2}}</span>
+            <a href="mailto:{{sobre.email}}">{{sobre.email}}</a>
+            <span class="wpp">
+                <a href="https://api.whatsapp.com/send?phone=5522998958088&text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es." target="_blank">
+                    <i class="fa fa-whatsapp fa-3x"></i>
+                </a>
+            </span>
+        </address>
+    </div>
+    <div class="contato-dir">
+        <h4>Fale Conosco</h4>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% load widget_tweaks %}
+        <form id="contato_form" action="{% url 'contato:contato' %}"
+              method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {%if form.non_field_errors %}
+                {{form.non_field_errors.as_text}}
+            {% endif %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+            {% for field in form.visible_fields %}
+                    {% if 'telefone' in field.name %}
+                        {% render_field field class="tel" placeholder=field.label%}
+                    {% else %}
+                        {% render_field field placeholder=field.label %}
+                    {% endif %}
+                    {% if field.errors %}
+                        <span class="help-block">{{ field.errors.as_text }}</span>
+                    {% endif %}
+            {% endfor %}
+            <button id="enviar_contato" type="submit">Enviar <i class="fa fa-envelope"></i></button>
+        </form>
+    </div>
+</section>
+{% endblock %}
+{% block extra_js %}
+    <script>
+        $(function(){
+            $(".tel").mask("(00) 0000-00009");
+            $("form button[type='submit']").click(function(){
+                hidden = '<input name="' + $(this).attr('name') + '" value="' + $(this).val() + '" type="hidden" />';
+            });
+            $('form').submit(function() {
+                $("button[type='submit']").prop('disabled',true);
+                $(this).append(hidden);
+            });
+        });
+    </script>
+{% endblock %}

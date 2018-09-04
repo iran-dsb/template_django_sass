@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    <title>A Pousada - Portifólio</title>
+{% endblock %}
+{% block content %}
+    <section class="container content">
+        <div class="titulo-pagina">
+            <h2>A Pousada</h2>
+
+        </div>
+        <div class="txt-sobre">
+            {{sobre.sobre|safe}}
+        </div>
+        <div class="fotos-sobre">
+            {% for foto in fotos %}
+                <a href="{{foto.imagem.url}}" data-lightbox="a-pousada" data-title="{{foto.titulo}}">
+                    <img src="{{foto.imagem.url}}" alt="{{foto.titulo}}" />
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

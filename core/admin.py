@@ -1,3 +1,4 @@
+from core.models.enderecos import *
 from django.contrib import admin
 
 # Register your models here.
@@ -26,3 +27,10 @@ class PermissionFieldMixin(object):
                     else:
                         self.exclude = [_field.name]
         return super().get_form(request, obj, **kwargs)
+
+admin.site.register(Regiao)
+admin.site.register(Estado)
+admin.site.register(Mesorregiao)
+admin.site.register(Microrregiao)
+admin.site.register(Municipio)
+admin.site.register(Bairro)

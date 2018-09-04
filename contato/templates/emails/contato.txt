@@ -1,0 +1,10 @@
+
+Assunto: {{contato.assunto}}
+
+Nome: {{contato.nome}}
+E-mail: {{contato.email}}
+Telefone: {{contato.telefone}}
+
+Mensagem:
+
+{{contato.mensagem}}

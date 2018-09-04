@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    <title>{{galeria.titulo}} - Portifólio</title>
+{% endblock %}
+{% block extra_meta %}
+    <meta property="og:title" content="{{galeria.titulo}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{galeria.capa.imagem.url}}" />
+    <meta property="og:site_name" content="Portifólio" />
+    <meta name="keywords" content="">
+{% endblock %}
+{% block extra_css %}
+{% endblock %}
+{% block content %}
+    <section class="container content">
+        <div class="titulo-pagina">
+            <h2>{{galeria.titulo}}</h2>
+
+        </div>
+        <span class="meta-galeria">
+            Em <span>{{galeria.data_publicacao|date:"d b, Y H:i"}}h</span> por 
+            <span>{{galeria.criado_por.nome}}</span>
+        </span>
+        <div class='desc-galeria'>
+            {{galeria.texto|safe}}
+        </div>
+        <div class="flex-galerias">
+            {% for foto in galeria.imagens.all %}
+                <a class="foto-galeria" {%if foto.credito %} title="{{foto.credito}}" {% endif %} data-lightbox="{{galeria.titulo}}" data-title="{{foto.titulo}}"  href="{{foto.imagem.url}}">
+                    <img class="image" src="{{foto.imagem.url}}" alt="{{foto.titulo}}"/>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_js %}
+{%endblock%}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Galeria - Portifólio</title>
+{% endblock %}
+{% block content %}
+	<section class="container content">
+		<div class="titulo-pagina">
+			<h2>Galeria de Fotos</h2>
+
+		</div>
+		<div class="flex-quartos">
+			{% for galeria in galerias %}
+			<div class="squarto">
+				<a class="quarto-lst" href="{{galeria.get_absolute_url}}" title="{{galeria.titulo}}" >
+					{% if galeria.capa.imagem_thumbnail  %}
+						<span class="capa-quarto">
+							<img src="{{galeria.capa.imagem_thumbnail.url}}" alt="{{galeria.titulo}}" />
+						</span>
+					{% endif %}
+				</a>
+				<a href="{{galeria.get_absolute_url}}" class="nome-quarto-lst">{{galeria.titulo}}</a>
+			</div>
+			{% endfor %}
+		</div>
+		{% load paginacao %}
+		{% paginador galerias page_range query_string %}
+	</section>
+{% endblock %}

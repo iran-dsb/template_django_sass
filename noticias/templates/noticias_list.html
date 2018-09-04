@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Notícias - Template Sass</title>
+{% endblock %}
+{% block content %}
+<main class="internas">
+    <section class="linha">
+        <div class="container">
+            <h4>Notícias</h4>
+            <div class="float-not">
+                <div class="noticias-list">
+                    {% for noticia in noticias %}
+                        <a href="{{noticia.get_absolute_url}}" class="noticia">
+                            {% if noticia.capa.imagem_thumbnail %}
+                                <span class="capa-not">
+                                    <img class="img-responsive" src="{{noticia.capa.imagem_thumbnail.url}}" alt="{{noticia.capa.titulo}}"/>
+                                </span>
+                            {% endif %}
+                            <div class="infos-not">
+                                <span class='titulo'>{{noticia.titulo}}</span>
+                                
+                                <span class="data-categoria">
+                                    Em {{noticia.data_publicacao|date:"d b, Y H:i"}}h | {{noticia.categoria}}
+                                </span>
+
+                                <div class="summary">{{noticia.resumo|truncatewords:40}}</div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                    {% load paginacao %}
+                    {% paginador noticias page_range query_string %}
+                </div>
+                <div class="categorias">
+                    <h5>Categorias</h5>
+                    <ul>
+                        {% for categoria in categorias%}
+                            <li><a href="{%url 'noticias:noticias_list_categ' categoria=categoria.slug%}">{{categoria}}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <h5>Tags</h5>
+                    {% load taggit_templatetags2_tags %}
+                    {% get_tagcloud as tags for 'noticias.noticia' limit 5 %}
+                    {% for tag in tags %}
+                    <span class="tag">
+                        <a href="{% url 'noticias:noticias_list_tags' tag=tag.slug %}">{{tag}}</a>
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
