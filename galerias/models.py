@@ -24,9 +24,10 @@ class Galeria(ModelBase):
 
     objects = GaleriasQueryset.as_manager()
 
-    @models.permalink
     def get_absolute_url(self):
-        return 'galerias:galeria', (), {'slug': self.slug}
+        from django.urls import reverse
+        return reverse('galerias.views.galerias_details', kwargs={'slug': self.slug})
+        #return 'galerias:galeria', (), {'slug': self.slug}
 
     @property
     def capa(self):

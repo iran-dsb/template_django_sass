@@ -22,9 +22,10 @@ class Categoria(ModelBase):
     def __str__(self):
         return self.descricao
 
-    @models.permalink
     def get_absolute_url(self):
-        return 'noticias:visualizar_categoria', (), {'slug': self.slug}
+        from django.urls import reverse
+        return reverse('noticias.views.categoria_details', kwargs={'slug': self.slug})
+        #return 'noticias:visualizar_categoria', (), {'slug': self.slug}
 
     class Meta:
         verbose_name = 'Categoria de Notícia'
@@ -81,9 +82,10 @@ class Noticia(ModelBase):
 
     objects = NoticiasQueryset.as_manager()
 
-    @models.permalink
     def get_absolute_url(self):
-        return 'noticias:noticia', (), {'slug': self.slug}
+        from django.urls import reverse
+        return reverse('noticias.views.noticias_details', kwargs={'slug': self.slug})
+        #return 'noticias:noticia', (), {'slug': self.slug}
 
     @property
     def capa(self):
